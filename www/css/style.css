@@ -1,0 +1,33 @@
+/* Empty. Add your own CSS if you like */
+
+body{
+	background-image: url(../img/background.jpg);
+	background-position: 30% 20%; 
+	background-repeat: no-repeat;
+}
+
+.consol {
+	position: absolute;
+	top: 5%;
+	left: 0;
+	width: 100%;
+	color: #143553;
+	text-align: center;
+	font-size: 3em;
+	color: white;
+}
+
+.pin {
+	position: absolute;
+	color: #143553;
+	top: 30%;
+	left: 0;
+	width:100%;
+	text-align: center;
+	font-size: 3em;
+	
+}
+.pin img{
+	max-width: 70%;
+	
+}
