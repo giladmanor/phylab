@@ -6,75 +6,24 @@
 		<title></title>
 		<script src="js/jquery-1.11.1.min.js"></script>
 
-		<link href="lib/ionic/css/ionic.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
-		<link href="css/gallery.css" rel="stylesheet">
+		
 
 		<!-- cordova script (this will be a 404 during development) -->
 		<script src="cordova.js"></script>
 
 		<!-- your app's js -->
-		<script src="js/matter-0.8.0.js" type="text/javascript"></script>
 		<script src="js/app.js"></script>
-		<script src="js/gallery.js"></script>
+		
 
 	</head>
 	<body >
-		<!-- <button onclick="app.flipGavity()" style="position: absolute;top:10px;left: 10px;width: 30px;height: 30px">
-		g
-		</button> -->
-		<div class="glass"></div>
-		<ul class="gallery">
-
-			<li class="gallery_item" onclick="gallery.show(this,app.compass)" style="background-image: url(img/compass.png)">
-				<h1 id="name">מצפן</h1>
-
-			</li>
-
-			<li class="gallery_item" onclick="gallery.show(this,app.avalanche)" style="background-image: url(img/balls.jpg)">
-				<h1 id="name">כדורים</h1>
-
-			</li>
-
-			<li class="gallery_item" onclick="gallery.show(this,app.gas)" style="background-image: url(img/balloon.png)">
-				<h1 id="name">גז</h1>
-
-			</li>
-
-			<li class="gallery_item" onclick="gallery.show(this,app.liquid)" style="background-image: url(img/liquid.png)">
-				<h1 id="name">נוזל</h1>
-
-			</li>
-
-			<li class="gallery_item" onclick="gallery.show(this,app.softBody)" style="background-image: url(img/Spongebob.png)">
-				<h1 id="name">ספוגים</h1>
-
-			</li>
-
-			<li class="gallery_item"  onclick="gallery.show(this,app.newtonsCradle)" style="background-image: url(img/cradle.PNG)">
-				<h1 id="name">מטוטלת</h1>
-
-			</li>
-
-			<li class="gallery_item"  onclick="gallery.show(this,app.slingshot)" style="background-image: url(img/slingshot.PNG)">
-				<h1 id="name">רוגטקה</h1>
-
-			</li>
-
-			<li class="gallery_item"  onclick="gallery.show(this,app.maze)" style="background-image: url(img/balls.PNG)">
-				<h1 id="name">מבוך</h1>
-
-			</li>
-
-		</ul>
-
-		<div id="accel" style="position: absolute;top:50%;left:50%;color: gray;display: none">
-			00
-		</div>
 		
 		
+				
+		
 
-		<div id="canvas-container" style="display: none"></div>
+		
 	</body>
 	<script>
 		app.init();
