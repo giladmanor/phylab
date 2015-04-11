@@ -7,81 +7,93 @@
 		<script src="js/jquery-1.11.1.min.js"></script>
 
 		<link href="css/style.css" rel="stylesheet">
-		
 
 		<!-- cordova script (this will be a 404 during development) -->
 		<script src="cordova.js"></script>
 
 		<!-- your app's js -->
-		<script src="js/app.js"></script>
-		
+		<script src="js/processing.js"></script>
+		<script src="js/menu.js"></script>
 
 	</head>
 	<body >
-		
-		
-				
+
+		<script type="application/processing">
+
+		</script>
+		<canvas class="canabis" id="__processing0" data-processing-sources="pde/rotating_box.pde" ></canvas>
 		
 
-		
+		<div class="log">
+			xx
+		</div>
+
+		<div class="menu-bars" onclick="menu.toggle()">
+			<i class="fa fa-bars"></i>
+		</div>
+		<div class="menu">
+			<div class="menu-bars" onclick="menu.toggle()">
+				<i class="fa fa-bars"></i>
+			</div>
+			<ul>
+				<li class="menu-item" src="pde/bouncing_balls.pde">
+					<i class="fa fa-bug"></i>
+				</li>
+				<li class="menu-item" src="pde/rotating_box.pde">
+					<i class="fa fa-car"></i>
+				</li>
+				<li class="menu-item" src="pde/rotating_box.pde">
+					<i class="fa fa-cogs"></i>
+				</li>
+				<li class="menu-item" src="pde/rotating_box.pde">
+					<i class="fa fa-bus"></i>
+				</li>
+				<li class="menu-item" src="pde/rotating_box.pde">
+					<i class="fa fa-comments"></i>
+				</li>
+				<li class="menu-item" src="pde/rotating_box.pde">
+					<i class="fa fa-cubes"></i>
+				</li>
+			</ul>
+		</div>
+
 	</body>
 	<script>
-		app.init();
-		//app.slingshot();
-		//app.avalanche();
+		
+		var p;
+		
+		
+		function log(s) {
+			$(".log").html(s);
+		}
+
+		var tiltX = 0;
+		var tiltY = 0;
+
+		var boxSize = 120;
+		var instance;
+		if (!instance) {
+			instance = Processing.getInstanceById('__processing0');
+		}
+		log("instance");
 		document.addEventListener("deviceready", onDeviceReady, false);
 
-		// device APIs are available
-		//
 		function onDeviceReady() {
-			document.addEventListener("backbutton", gallery.back, true);
+			log("DeviceReady");
 			setInterval(function() {
-				navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-				// navigator.compass.getCurrentHeading(onCompassSuccess, onError);
-			}, 100);
-			
-			setInterval(function() {
-				navigator.accelerometer.getCurrentAcceleration(backgroundMotion, onError);
-				// navigator.compass.getCurrentHeading(onCompassSuccess, onError);
-			}, 500);
-
-		}
-		
-		function backgroundMotion(acceleration){
-			$("body").animate({
-				"background-position-x": (50 + acceleration.x / 3)+ '%',
-				"background-position-y": (20 - acceleration.y / 3)+ '%',
-				
-			},400);
+				navigator.accelerometer.getCurrentAcceleration(onAcceleration, onError);
+			}, 10);
 		}
 
-		var heading = 0;
-		function onCompassSuccess(heading) {
-			$(".consol").html(heading.magneticHeading);
-		}
-
-		// onSuccess: Get a snapshot of the current acceleration
-		//
-		function onSuccess(acceleration) {
-
-			//var v = 'Acceleration X: ' + acceleration.x + ' Acceleration Y: ' + acceleration.y;
-			app.flipGavity(acceleration);
-			//$("body").css('background-position', (50 + acceleration.x / 2) + '% ' + (20 - acceleration.y / 2) + '%');
-			
-			
-			
-		}
-
-		// onError: Failed to get the acceleration
-		//
 		function onError() {
 			alert('onError!');
 		}
 
-		setTimeout(function() {
-			//gallery.show(this,app.softBody);
-			console.log(navigator);
-		}, 1000);
+		function onAcceleration(acceleration) {
+			tiltX = (-10 * acceleration.x );
+			tiltY = (10 * acceleration.y );
+			$(".log").html(tiltX);
+		}
 
 	</script>
 </html>
